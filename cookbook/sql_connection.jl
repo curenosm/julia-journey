@@ -1,8 +1,8 @@
 using Pkg
 
+# Pkg.add(url="https://github.com/JuliaDB/PostgreSQL.jl")
 Pkg.add(url="https://github.com/JuliaComputing/MySQL.jl")
 Pkg.add(url="https://github.com/JuliaDB/DBI.jl")
-# Pkg.add(url="https://github.com/JuliaDB/PostgreSQL.jl")
 Pkg.add("SQLite")
 
 

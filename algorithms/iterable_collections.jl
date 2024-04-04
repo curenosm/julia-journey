@@ -1,6 +1,6 @@
 # Destructive functions end with `!`
 
-eltype([1, 2, 3]) # Int64
+eltype([1, 2, 3]) # Int64|1
 eltype([1.0, 2.0, 3.0]) # Float64
 eltype(["a", "b", 'x']) # Any
 

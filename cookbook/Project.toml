@@ -1,0 +1,8 @@
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+DBInterface = "a10d1c49-ce27-4219-8d33-6db1a4562965"
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+MySQL = "39abe10b-433b-5dbd-92d4-e302a9df00cd"
+OhMyREPL = "5fb14364-9ced-5910-84b2-373655c76a03"
+SQLite = "0aa819cd-b072-5ff4-a722-6bc24af294d9"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

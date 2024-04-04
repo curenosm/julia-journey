@@ -13,7 +13,7 @@ A = "ACGTCAGACGATATATCCACA"
 B = "ACGTCATATCCA"
 
 """
-Needleman-Wunsch algorithm for global alignment of two sequences
+Needleman-Wunsch algorithm for global alignment of two sequences.
 """
 function needleman_wunsch(A::String, B::String)
     n = length(A)
@@ -39,7 +39,7 @@ function needleman_wunsch(A::String, B::String)
 end
 
 """
-Traceback function for Needleman-Wunsch algorithm
+Traceback function for Needleman-Wunsch algorithm.
 """
 function traceback(M, A::String, B::String)
     n = length(A)

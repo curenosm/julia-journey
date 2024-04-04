@@ -1,2 +1,4 @@
 [deps]
+Braket = "19504a0f-b47d-4348-9127-acc6cc69ef67"
+Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
 PkgTemplates = "14b8a8f1-9102-5b29-a752-f990bacb7fe1"
