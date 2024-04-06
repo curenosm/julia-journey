@@ -46,3 +46,10 @@ a = CuArray(collect(1:10))
 a = CuArray(collect(1:6))
 b = reshape(a, (2, 3))
 c = view(a, 2:5)
+
+a = CuArray(collect(1:1_000_000))
+b = reshape(a, 1_000, 1_000)
+
+a .= 123123123
+
+a
