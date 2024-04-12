@@ -1,0 +1,4 @@
+[deps]
+Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
+IRTools = "7869d1d1-7146-5819-86e3-90919afe41df"
+Literate = "98b081ad-f1c9-55d3-8b20-4c87d4299306"

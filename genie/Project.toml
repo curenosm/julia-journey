@@ -1,0 +1,5 @@
+[deps]
+Genie = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
+GenieFramework = "a59fdf5c-6bf0-4f5d-949c-a137c9e2f353"
+SearchLight = "340e8cb6-72eb-11e8-37ce-c97ebeb32050"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
