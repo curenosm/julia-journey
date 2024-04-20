@@ -1,0 +1,5 @@
+┌ Info: 2024-04-12 22:02:55 Watching ["D:\\pc\\github\\journeys\\julia-journey\\genie\\src\\reactive_ui"]
+└ @ GenieAutoReload C:\Users\csmis\.julia\packages\GenieAutoReload\ESvsh\src\GenieAutoReload.jl:19
+┌ Info: 2024-04-12 22:02:56 
+│ Web Server starting at http://127.0.0.1:8000 
+└ @ Genie.Server C:\Users\csmis\.julia\packages\Genie\uSsQa\src\Server.jl:182
