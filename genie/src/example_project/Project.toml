@@ -1,5 +1,8 @@
 [deps]
 Genie = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
 GenieFramework = "a59fdf5c-6bf0-4f5d-949c-a137c9e2f353"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
 OhMyREPL = "5fb14364-9ced-5910-84b2-373655c76a03"
 SearchLight = "340e8cb6-72eb-11e8-37ce-c97ebeb32050"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
