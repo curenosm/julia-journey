@@ -21,6 +21,3 @@ R = GF(p)  # Finite field with 7 elements
 
 R, = residue_ring(ZZ, 3)  # Integers modulo 3
 S, x = polynomial_ring(R, :x)  # Polynomials in x with coefficients in R
-
-
-

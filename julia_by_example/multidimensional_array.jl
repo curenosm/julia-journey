@@ -6,8 +6,8 @@ function printsum(a)
 end
 
 m1 = hcat(repeat([1, 2], inner=[1], outer=[3 * 2]),
-          repeat([1, 2, 3], inner=[2], outer=[2]),
-          repeat([1, 2, 3, 4], inner=[3], outer=[1]))
+    repeat([1, 2, 3], inner=[2], outer=[2]),
+    repeat([1, 2, 3, 4], inner=[3], outer=[1]))
 printsum(m1) # prints
 #> 12×3 Array{Int64,2}: [1 1 1; 2 1 1; 1 2 1; 2 2 2; 1 3 2; 2 3 2; 1 1 3; 2 1 3;
 #>   1 2 3; 2 2 4; 1 3 4; 2 3 4]
@@ -28,7 +28,8 @@ m5 = ["Hi Im # $(i+2*(j-1 + 3*(k - 1)))" for i = 1:2, j = 1:3, k = 1:2]
 # expressions are very flexible
 # you can specify the type of the array by just
 # placing it in front of the expression
-import Pkg; Pkg.add("LegacyStrings")
+import Pkg;
+Pkg.add("LegacyStrings");
 
 import LegacyStrings
 m5 = LegacyStrings.ASCIIString[

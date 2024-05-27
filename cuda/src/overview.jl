@@ -10,7 +10,7 @@ a .+= 1
 
 a
 
-CUDA.allowscalar() do 
+CUDA.allowscalar() do
     a[1] += 1
 end
 

@@ -35,7 +35,7 @@ printsum(a5)
 #> 10-element Array{Int64,1}: [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
 
 # arrats can be any type, so arrays of arrays can be created:
-a6 = (Array{Int64, 1})[]
+a6 = (Array{Int64,1})[]
 printsum(a6)
 #> 0-element Array{Array{Int64,1},1}: Array{Int64,1}[]
 # (not this is a "jagged array" (i.e., an array of arrays), not a 

@@ -38,7 +38,7 @@ while !isempty(a1)
 end
 println() #> 4, 3, 2, 1,
 
-d1 = Dict(1=>"one", 2=>"two", 3=>"three")
+d1 = Dict(1 => "one", 2 => "two", 3 => "three")
 # dicts may be looped through using the keys function:
 for k in sort(collect(keys(d1)))
     print(k, ": ", d1[k], ", ")
@@ -57,5 +57,5 @@ println() #> 1: one, 2: two, 3: three,
 # map works as you might expect performing the given function on each member
 # of an array or iter much like comprehensions
 a4 = map((x) -> x^2, [1, 2, 3, 7])
-print(a4) 
+print(a4)
 println() #> [1, 4, 9, 49]

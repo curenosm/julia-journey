@@ -8,7 +8,6 @@ using DataFrames
 using CSV, SQLite
 
 
-
 # Pkg.update()
 
 s = "D:\\pc\\github\\journeys\\julia-journey\\"

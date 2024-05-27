@@ -113,7 +113,7 @@ using Printf
 using Statistics
 
 N_POINTS_Y = 360
-ASPECT_RATIO = 16/9
+ASPECT_RATIO = 16 / 9
 KINEMATIC_VISCOSITY = 1.0 / 1000.0
 TIME_STEP_LENGTH = 0.001
 N_TIME_STEPS = 750
@@ -139,7 +139,7 @@ function main()
     wavenumbers_y = [k_y for k_x in wavenumbers_1d_x, k_y in wavenumbers_1d_y]
     wavenumbers_norm = [norm([k_x, k_y]) for k_x in wavenumbers_1d_x, k_y in wavenumbers_1d_y]
 
-    decay = exp.(- TIME_STEP_LENGTH .* KINEMATIC_VISCOSITY .* wavenumbers_norm.^2)
+    decay = exp.(-TIME_STEP_LENGTH .* KINEMATIC_VISCOSITY .* wavenumbers_norm .^ 2)
     wavenumbers_norm[iszero.(wavenumbers_norm)] .= 1.0
     normalized_wavenumbers_x = wavenumbers_x ./ wavenumbers_norm
     normalized_wavenumbers_y = wavenumbers_y ./ wavenumbers_norm
@@ -181,7 +181,7 @@ function main()
         backtraced_coordinates_x .= mod1.(
             coordinates_x - TIME_STEP_LENGTH * velocity_x_prev,
             x_extent,
-        ) 
+        )
         backtraced_coordinates_y .= mod1.(
             coordinates_y - TIME_STEP_LENGTH * velocity_y_prev,
             1.0,
@@ -238,22 +238,22 @@ function main()
             x_interval,
             y_interval,
             curl',
-            c = :seaborn_icefire_gradient,
-            size = (1920, 1080),
-            clim = (-5.0, 5.0),
-            axis = false,
-            showaxis = false,
-            legend = :none,
-            ticks = false,
-            margin = 0.0Plots.mm,
-            annotations = (
+            c=:seaborn_icefire_gradient,
+            size=(1920, 1080),
+            clim=(-5.0, 5.0),
+            axis=false,
+            showaxis=false,
+            legend=:none,
+            ticks=false,
+            margin=0.0Plots.mm,
+            annotations=(
                 0.06,
                 1.0 - 0.06,
                 Plots.text(
                     "$(@sprintf("iter: %05d", iter))",
-                    pointsize = 40,
-                    color = :white,
-                    halign = :left,
+                    pointsize=40,
+                    color=:white,
+                    halign=:left,
                 )
             )
         )

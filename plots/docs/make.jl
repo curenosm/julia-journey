@@ -5,28 +5,28 @@ include("generate.jl")
 
 const formats = Any[
     Documenter.HTML(
-        prettyurls = get(ENV, "CI", nothing) == "true",
-        canonical = "https://julialang.github.io/Pkg.jl",
-        assets = ["assets/custom.css"],
-    ),
+    prettyurls=get(ENV, "CI", nothing) == "true",
+    canonical="https://julialang.github.io/Pkg.jl",
+    assets=["assets/custom.css"],
+),
 ]
 
 if "pdf" in ARGS
-    push!(formats, Documenter.LaTeX(platform = "docker"))
+    push!(formats, Documenter.LaTeX(platform="docker"))
 end
 
-DocMeta.setdocmeta!(Pkg.BinaryPlatforms, :DocTestSetup, :(using Base.BinaryPlatforms; recursive=true))
+DocMeta.setdocmeta!(Pkg.BinaryPlatforms, :DocTestSetup, :(using Base.BinaryPlatforms; recursive = true))
 
 Documenter.doctest(joinpath(@__DIR__, "src"), [Pkg])
 
 # Build the docs
 makedocs(
-    format = formats,
-    modules = [Pkg],
-    sitename = "Pkg.jl",
-    doctest = false,
-    warnonly = :missing_docs,
-    pages = Any[
+    format=formats,
+    modules=[Pkg],
+    sitename="Pkg.jl",
+    doctest=false,
+    warnonly=:missing_docs,
+    pages=Any[
         "index.md",
         "getting-started.md",
         "managing-packages.md",
@@ -53,9 +53,9 @@ mktempdir() do tmp
     # Depploy HTML pages
     @info "Deploying HTML pages"
     deploydocs(
-        repo = "github.com/JuliaLang/Pkg.jl",
-        versions = ["v#.#", "dev" => "dev"],
-        push_preview = true,
+        repo="github.com/JuliaLang/Pkg.jl",
+        versions=["v#.#", "dev" => "dev"],
+        push_preview=true,
     )
 
     # Put back PDF into docs/build/pdf
@@ -67,9 +67,9 @@ mktempdir() do tmp
     # Deploy PDF
     @info "Deploying PDF"
     deploydocs(
-        repo = "github.com/JuliaLang/Pkg.jl",
-        target = "build/pdf",
-        branch = "gh-pages-pdf",
-        forcepush = true,
+        repo="github.com/JuliaLang/Pkg.jl",
+        target="build/pdf",
+        branch="gh-pages-pdf",
+        forcepush=true,
     )
 end

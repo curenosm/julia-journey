@@ -2,10 +2,10 @@ using PkgTemplates
 
 
 t = Template(;
-    user = "curenosm",
-    license = "MIT",
-    authors = "curenosm",
-    plugins = [
+    user="curenosm",
+    license="MIT",
+    authors="curenosm",
+    plugins=[
         TravisCI(),
         Codecov(),
         Coveralls(),

@@ -38,15 +38,18 @@ println(s1_caps, "\n", s1_lower)
 
 # sub strings can be indexed like arrays:
 # (show prints the raw value)
-show(s1[11]); println()
+show(s1[11]);
+println();
 #> 'b'
 
 # or sub strings can be created:
-show(s1[1:10]); println()
+show(s1[1:10]);
+println();
 #> "The quick "
 
 # end is used for the end of the array or string
-show(s1[end-10:end]); println()
+show(s1[end-10:end]);
+println();
 #> "dog 🦊 🐶"
 
 # julia allows string Interpolation:

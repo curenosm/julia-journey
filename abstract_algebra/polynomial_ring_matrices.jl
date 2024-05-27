@@ -1,7 +1,7 @@
 using AbstractAlgebra
 
 
-R, x = polynomial_ring(ZZ,  "x")
+R, x = polynomial_ring(ZZ, "x")
 
 S = matrix_space(R, 10, 10)
 

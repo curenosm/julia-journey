@@ -4,7 +4,6 @@ typeof(:foo)
 :foo == Symbol("foo") == Symbol('f', "oo")
 
 
-
 # Creando uno nuevo
 
 gensym(), gensym()

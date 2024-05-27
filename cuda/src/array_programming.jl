@@ -16,7 +16,7 @@ map(sin, a)
 
 a = CUDA.ones(2, 3)
 reduce(+, a)
-mapreduce(sin, *, a; dims = 2)
+mapreduce(sin, *, a; dims=2)
 
 b = CUDA.zeros(1)
 Base.mapreducedim!(identity, +, b, a)
@@ -25,7 +25,7 @@ Base.mapreducedim!(identity, +, b, a)
 # Para retener valores intermedios
 # Debe tratarse de un operador asociativo
 a = CUDA.ones(2, 3)
-accumulate(+, a; dims = 2)
+accumulate(+, a; dims=2)
 
 # Operaciones Lógicas
 a = CuArray([1, 2, 3])
@@ -38,8 +38,8 @@ findfirst(isodd, a)
 
 b = CuArray([11 12 13; 21 22 23])
 findmin(b)
-findmax(b; dims = 1)
-findmax(b; dims = 2)
+findmax(b; dims=1)
+findmax(b; dims=2)
 
 # Wrappers de Arrays
 a = CuArray(collect(1:10))
@@ -74,7 +74,6 @@ blah blah blah
 """
 
 
-
 N = 2^20
 x = fill(1.0f0, N) # Un vector lleno de puros 1.0 de tipo Float32
 y = fill(2.0f0, N) # Un vector lleno de puros 2.0 de tipo Float32
@@ -95,11 +94,7 @@ sequential_add!(y, x)
 @test all(y .== 3.0f0)
 
 
-
-
-
 # Implementación en paralelo
-
 
 function parallel_add!(y, x)
     Threads.@threads for i in eachindex(y, x)
@@ -139,7 +134,6 @@ end
 @btime add_broadcast!($y_d, $x_d)
 
 
-
 # Misma funcionalidad utilizando un kernel de GPU
 
 function gpu_add1!(y, x)
@@ -151,12 +145,5 @@ end
 
 fill!(y_d, 2)
 @cuda gpu_add1!(y_d, x_d) # Compila el kernel para la GPU
-                          # posteriores ejecuciones son más rápidas
+# posteriores ejecuciones son más rápidas
 @test all(Array(y_d) .== 3.0f0)
-
-
-
-
-
-
-

@@ -13,7 +13,8 @@ println(r)
 
 # string replace is done thus:
 r = replace(s1, "brown" => "red")
-show(r); println()
+show(r);
+println();
 #> "The quick red fox jumps over the lazy dog 🦊 🐶"
 
 # search and replace can also take a regular expressions by preceding the
@@ -24,7 +25,8 @@ println(r)
 
 # again with a regular expressions
 r = replace(s1, r"b[\w]*n" => "red")
-show(r); println()
+show(r);
+println();
 #> "The quick red fox jumps over the lazy dog 🦊 🐶"
 
 # there are also functions for regular expressions that return RegexMatch types
@@ -35,12 +37,15 @@ println(r)
 #> RegexMatch("brown")
 
 # RegexMatch types have a property match that holds the matched string
-show(r.match); println()
+show(r.match);
+println();
 #> "brown"
 
 # eachmatch returns an iterator over all the matches
 r = eachmatch(r"[\w]{4,}", s1)
-for i in r print("\"$(i.match)\" ") end
+for i in r
+    print("\"$(i.match)\" ")
+end
 #> "quick" "brown" "jumps" "over" "lazy"
 println()
 
@@ -50,27 +55,33 @@ println(r)
 
 # a string can be repeated using the repeat function,
 # or a more succintly with the `^` syntax:
-r = "hello " ^ 3
-show(r); println()
+r = "hello "^3
+show(r);
+println();
 
 # the strip function works the same as python:
 r = strip("  hello  ")
-show(r); println() #> "hello"
+show(r);
+println(); #> "hello"
 
 # or with a second argument of an array of chars it strips any of them;
 r = strip("  hello  ", ['h', ' '])
-show(r); println() #> "ello"
+show(r);
+println(); #> "ello"
 # (note the array is of chars and not strings)
 
 # similarly split works in basically the same way as python:
 r = split("hello, there,bob", ',')
-show(r); println() #> Substring{String}["hello", " there", "bob"]
+show(r);
+println(); #> Substring{String}["hello", " there", "bob"]
 
 r = split("hello, there,bob", ", ")
-show(r); println() #> Substring{String}["hello", "therebob"]
+show(r);
+println(); #> Substring{String}["hello", "therebob"]
 
 r = split("hello, there,bob", [',', ' '])
-show(r); println() #> Substring{String}["hello", "", "there", "bob"]
+show(r);
+println(); #> Substring{String}["hello", "", "there", "bob"]
 
 # (the last two arguments are limit and include_empty, see docs)
 

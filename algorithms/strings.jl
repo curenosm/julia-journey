@@ -13,7 +13,7 @@ This is an "interesting" example.
 
 s = "Hello, world!"
 
-s[1], s[2], s[floor(Int, end/2)], s[end - 1], s[end]
+s[1], s[2], s[floor(Int, end / 2)], s[end-1], s[end]
 
 
 s[8:12]

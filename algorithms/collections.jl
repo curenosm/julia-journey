@@ -12,7 +12,8 @@ length(empty!(Dict("a" => 1, "b" => 2)))
 
 
 # No sustituye nada por que el rango no de posiciones está vacío.
-v = [1, 2, 3]; splice!(v, 2:1, [20, 30])
+v = [1, 2, 3];
+splice!(v, 2:1, [20, 30]);
 v
 
 length(2:1)
@@ -24,6 +25,3 @@ length(2:1)
 # serie de Taylor. Compara la velocidad y cantidad de memoria utilizada de
 # cinco versiones utilizando reduce, sum, mapreduce, array comprehensions y
 # generadores.
-
-
-

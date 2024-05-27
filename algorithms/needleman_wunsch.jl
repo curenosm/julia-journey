@@ -29,7 +29,7 @@ function needleman_wunsch(A::String, B::String)
         for j in 1:m
             c1 = findfirst(A[i], bases)
             c2 = findfirst(B[j], bases)
-            M[i+1,j+1] = max(
+            M[i+1, j+1] = max(
                 M[i, j] + S_matrix[c1][c2],
                 M[i, j+1] + d,
                 M[i+1, j] + d)
@@ -51,12 +51,12 @@ function traceback(M, A::String, B::String)
     while i > 0 && j > 0
         c1 = findfirst(A[i], bases)
         c2 = findfirst(B[j], bases)
-        if M[i+1,j+1] == M[i, j] + S_matrix[c1][c2]
+        if M[i+1, j+1] == M[i, j] + S_matrix[c1][c2]
             align_A = A[i] * align_A
             align_B = B[j] * align_B
             i -= 1
             j -= 1
-        elseif M[i+1,j+1] == M[i,j+1] + d
+        elseif M[i+1, j+1] == M[i, j+1] + d
             align_A = A[i] * align_A
             align_B = "-" * align_B
             i -= 1

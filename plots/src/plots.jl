@@ -14,7 +14,7 @@ scatter([f, g], 0, 2pi, title="f and g", xlabel="x", ylabel="y", linewidth=4)
 
 x = collect(-20:0.2:20);
 
-y1 = x.^2
+y1 = x .^ 2
 t2 = cos.(x);
 
 plot(x, y1, label="cos(x)", lw=2)

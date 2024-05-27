@@ -26,10 +26,14 @@ end
 
 # CONTROLLERS
 route("/form") do
-    Html.form(action = "/result", method="POST", [
-        input(type="number", name="N", placeholder="Enter vector length")
-        input(type="submit", value="Send")
-    ])
+    Html.form(
+        action="/result",
+        method="POST",
+        [
+            input(type="number", name="N", placeholder="Enter vector length")
+            input(type="submit", value="Send")
+        ]
+    )
 end
 
 using GenieFramework.Genie.Requests: postpayload

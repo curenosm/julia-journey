@@ -21,8 +21,8 @@ y = lm(x + epsilon, p_0...)
 
 # Loss ? L2!
 L2(y, x, f, p...) = sum(
-    (y .- f.(x, p...)).^2.0
-)/length(x)
+    (y .- f.(x, p...)) .^ 2.0
+) / length(x)
 
 p = rand(length(p_0))
 

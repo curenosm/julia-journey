@@ -104,8 +104,3 @@ point numbers.
 3. As an example, apply your bisection implementation to finding the
 root of sin in the interval [3, 4].
 =#
-
-
-
-
-

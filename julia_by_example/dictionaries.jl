@@ -3,7 +3,7 @@ function printsum(a)
 end
 
 # dicts can be initialized directly:
-a1 = Dict(1=>"one", 2=>"two")
+a1 = Dict(1 => "one", 2 => "two")
 printsum(a1)
 #> Dict{Int64, String} with 2 entries: Dict(2=>"two", 1=>"one")
 
@@ -14,7 +14,7 @@ printsum(a1)
 # (note dicts cannot be assumed to keep their original order)
 
 # dicts may also be created with the type explicitly set
-a2 = Dict{Int64, AbstractString}()
+a2 = Dict{Int64,AbstractString}()
 a2[0] = "zero"
 printsum(a2)
 #> Dict{Int64, AbstractString} with 1 entry: Dict(0=>"zero")

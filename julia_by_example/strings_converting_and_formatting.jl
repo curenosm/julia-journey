@@ -30,7 +30,7 @@ println("e_str1 == e_str2: $(e_str1 == e_str2)")
 @printf "float in hexadecimal format: %a\n" 0xff
 #> float in hexadecimal format: 0xf.fp+4
 
-@printf "fix trailing precision: %g\n" pi*1e8
+@printf "fix trailing precision: %g\n" pi * 1e8
 #> fix trailing precision: 3.14159e+08
 
 @printf "a character: %c\n" 'α'

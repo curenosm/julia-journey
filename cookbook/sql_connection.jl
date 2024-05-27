@@ -39,6 +39,6 @@ SHOW TABLES;
 
 stmt = DBInterface.prepare(conn, query)
 
-result =  DBInterface.execute(stmt)
+result = DBInterface.execute(stmt)
 df = DataFrame()
 

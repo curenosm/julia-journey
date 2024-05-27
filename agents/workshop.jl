@@ -1,12 +1,10 @@
 using Agents
 
-Schelling
-space
 properties = Dict(:min_to_be_happy => 3)
 
 model = AgentBasedModel(Schelling, space; properties)
 
-function initialize(; N = 320, M = 20, min_to_be_happy = 3)
+function initialize(; N=320, M=20, min_to_be_happy=3)
     space = GridSpace((10, 10))
     scheduler = Schedulers.randomly
     properties = Dict(:min_to_be_happy => min_to_be_happy)
@@ -65,15 +63,14 @@ display(fig)
 groupcolor(agent) = agent.group == 1 ? :blue : :orange
 groupmarker(agent) = agent.group == 1 ? :circle : :rect
 
-fig, _ = abm_plot(model; ac = groupcolor, am = groupmarker)
+fig, _ = abm_plot(model; ac=groupcolor, am=groupmarker)
 display(fig)
 
 model = initialize()
 abm_play(
     model, agent_step!;
-    ac = groupcolor, am = groupmarker, as = 12
+    ac=groupcolor, am=groupmarker, as=12
 )
-
 
 
 ### Step 6: Recolectar datos

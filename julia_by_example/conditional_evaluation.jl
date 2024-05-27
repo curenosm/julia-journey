@@ -14,7 +14,7 @@ end
 
 # Numbers can be compared with operators like <, >, <=, >=, ==, !=
 
-1 == 1.
+1 == 1.0
 #> true
 
 1 > 2

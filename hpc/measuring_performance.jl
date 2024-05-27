@@ -10,7 +10,6 @@ arr = rand(1024)
 @benchmark f($arr)
 
 
-
 # PROFILING
 
 function elementmul(a, b)
@@ -66,7 +65,6 @@ function recursivecalc(n, a)
 
     return s
 end
-
 
 
 """
@@ -135,8 +133,6 @@ function column_major_matrix_add(C, A, B)
 end
 
 
-
-
 function cumulative_sum_preallocated(numbers)
     results = similar(numbers)
     total_sum = zeros(eltype(numbers))
@@ -158,8 +154,6 @@ function cumulative_sum_appending(numbers)
 end
 
 
-
-
 function example_equation_no_cache(x)
     numerator = 5 .* x .^ 5 .* sin(x^2) .+ 20
     denominator = exp.(-4 .* x) .- x .^ 2
@@ -176,7 +170,4 @@ end
 
 using StaticArrays
 
-
 # Example of usage of StaticArrays
-
-

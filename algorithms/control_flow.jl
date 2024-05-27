@@ -13,17 +13,22 @@ c = begin
 end
 
 c = begin
-    global a = 3; global b = 2;
+    global a = 3
+    global b = 2
     a^a // b^b
 end
 
-c = begin global a = 3; global b = 2; a^a // b^b end
+c = begin
+    global a = 3
+    global b = 2
+    a^a // b^b
+end
 
 c = (global a = 3; global b = 2; a^a // b^b)
 
 nothing isa Nothing
 nothing === Nothing()
-begin end 
+begin end
 ans === nothing
 typeof(begin end)
 
@@ -44,7 +49,11 @@ typeof(my_sign(Int8(2)))
 
 # If blocks do not introduce new scopes
 
-foo = if 1 > 0 "yes" else "no" end
+foo = if 1 > 0
+    "yes"
+else
+    "no"
+end
 
 foo = 1 > 0 ? "yes" : "no"
 
@@ -61,9 +70,9 @@ compare(0, 1)
 
 function compare(a, b)
     string(a) * " is " *
-        (a < b ? "less than " : 
-         a == b ? "equal to " : "greater than ") *
-        string(b)
+    (a < b ? "less than " :
+     a == b ? "equal to " : "greater than ") *
+    string(b)
 end
 
 compare(0, -1), compare(0, 0), compare(0, 1)

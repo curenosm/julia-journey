@@ -1,8 +1,9 @@
 # try, catch can be used to deal with errors as with many other languages
 try
-    push!(a, 1)
+  push!(a, 1)
 catch err
-    showerror(stdout, err, backtrace()); println()
+  showerror(stdout, err, backtrace())
+  println()
 end
 
 #= 

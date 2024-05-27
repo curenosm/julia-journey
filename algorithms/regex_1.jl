@@ -5,14 +5,12 @@ m[:month], m[:day], m[:year]
 m["month"], m["day"], m["year"]
 
 
-
 # Nested named groups
 
 m = match(r"(?<number>(?<area>\d+)_(\d+)_(\d+))", s)
 m[:number], m[:area], m[1], m[2], m[3]
 
 match(r"artificial intelligence: (?<name>[[:alnum:]]+)", s)["name"]
-
 
 
 # Named and numbered groups
