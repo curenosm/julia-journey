@@ -9,7 +9,11 @@ function reverse_vowels(s::String)
     end
 
     for c in s
-        str *= if c in vowels pop!(vect) else c end
+        str *= if c in vowels
+            pop!(vect)
+        else
+            c
+        end
     end
 
     str

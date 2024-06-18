@@ -3,7 +3,8 @@ function valid_palindrome(s::String)
 
     while l <= r
         if s[l] == s[r]
-            l += 1; r -= 1
+            l += 1
+            r -= 1
         else
             return is_palindrome(s, l + 1, r) || is_palindrome(s, l, r - 1)
         end
@@ -15,12 +16,13 @@ end
 function is_palindrome(s::String, l::Int64, r::Int64)
     while l <= r
         if s[l] == s[r]
-            l += 1; r -= 1
+            l += 1
+            r -= 1
         else
             return false
         end
     end
-    
+
     true
 end
 

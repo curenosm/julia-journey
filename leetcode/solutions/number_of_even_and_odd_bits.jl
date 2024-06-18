@@ -23,7 +23,11 @@ function even_odd_bit(n::Int64)
     bin = bitstring(n)
 
     for (i, c) in enumerate(bin)
-        res[i % 2 + 1] += if c == '1' 1 else 0 end
+        res[i%2+1] += if c == '1'
+            1
+        else
+            0
+        end
     end
 
     return res

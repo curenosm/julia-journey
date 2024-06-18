@@ -1,5 +1,8 @@
 function alternating_digits_sum(num::Int64)
-    sign = if length(string(num)) % 2 == 0 -1 else 1 end
+    sign = if length(string(num)) % 2 == 0 - 1
+    else
+        1
+    end
     sum, n = 0, num
 
     while n != 0

@@ -10,9 +10,9 @@ function is_valid(s)
     regex = Regex(pattern)
 
     return !isnothing(match(consonants, s)) &&
-        !isnothing(match(vowels, s)) &&
-        !isnothing(match(pattern, s)) &&
-        !isnothing(match(regex, s))
+           !isnothing(match(vowels, s)) &&
+           !isnothing(match(pattern, s)) &&
+           !isnothing(match(regex, s))
 end
 
 input = "234Adas"

@@ -20,9 +20,13 @@ function max_product(nums::Vector{Int64})
     max = typemin(Int64)
 
     for i in eachindex(nums)
-        for j in (i + 1):length(nums)
+        for j in (i+1):length(nums)
             cur = (nums[i] - 1) * (nums[j] - 1)
-            max = if (max < cur) cur else max end
+            max = if (max < cur)
+                cur
+            else
+                max
+            end
         end
     end
 
