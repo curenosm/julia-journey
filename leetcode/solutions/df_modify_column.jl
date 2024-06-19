@@ -5,10 +5,10 @@ function modify_salary_column(df)
     return df
 end
 
-data = ["Jack"     19666;
-        "Piper"    74754;
-        "Mia"      62509;
-        "Ulysses"  54866]
+data = ["Jack" 19666;
+    "Piper" 74754;
+    "Mia" 62509;
+    "Ulysses" 54866]
 cols = [:name, :salary]
 input = DataFrame(data, :auto)
 rename!(input, cols, makeunique=true)
