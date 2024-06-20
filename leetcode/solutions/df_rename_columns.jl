@@ -9,7 +9,8 @@ function rename_columns(df)
 end
 
 
-data = [1 "Mason" "King" 6;
+data = [
+    1 "Mason" "King" 6;
     2 "Ava" "Wright" 7;
     3 "Taylor" "Hall" 16;
     4 "Georgia" "Thompson" 18;

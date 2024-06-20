@@ -12,6 +12,5 @@ data = [
 cols = [:product, :quarter_1, :quarter_2, :quarter_3, :quarter_4]
 input = DataFrame(data, :auto)
 rename!(input, cols, makeunique=true)
-println(df)
 output = melt_table(input)
 println(output)

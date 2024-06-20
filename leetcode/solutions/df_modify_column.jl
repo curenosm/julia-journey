@@ -5,7 +5,8 @@ function modify_salary_column(df)
     return df
 end
 
-data = ["Jack" 19666;
+data = [
+    "Jack" 19666;
     "Piper" 74754;
     "Mia" 62509;
     "Ulysses" 54866]
