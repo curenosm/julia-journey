@@ -156,3 +156,22 @@ s1 > s2
 
 # Guarda los resultados exitosos de la búsqueda en un vector
 collect(eachmatch(r"[^a-zA-Z0-9]", str))
+
+
+
+# Tuplas
+
+tup1 = (3.0, 9.1, 0.8, 1.9)
+println(tup1)
+typeof(tup1) # NTuple{4, Float64}
+
+# Los elementos pueden tener diferentes tipos
+tup2 = ("Data", 2.5, "Science", 8.8)
+typeof(tup2) # Tuple{String,Float64,String,Float64}
+
+# Asignacion de variables
+a, b, c = ("Fast", 1, 5.2)
+println(a, b, c)
+
+
+
