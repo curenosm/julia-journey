@@ -118,5 +118,68 @@ end
 # de igual manera se puede utilizar el símbolo => para separar la llave y
 # el valor asociada en el par.
 
+D0 = Dict()
+D1 = Dict(1 => "red", 2 => "white")
+D2 = Dict{Integer,String}(1 => "red", 2 => "white")
+
+food = ["salmon", "maple syrup", "tourtiere"]
+food_dict = Dict{Int,String}()
+
+## Las llaves son los indices en el arreglo
+for (n, fd) in enumerate(food)
+    food_dict[n] = fd
+end
+
+# También pueden ser creados utilizando la sintaxis de generator
+wine = ["red", "white", "rose"]
+wine_dict = Dict{Int,String}(i => wine[i] for i = 1:length(wine))
+
+# Para acceder utilizamos la misma sintaxis que
+# los arreglos
+food_dict[1]
+
+get(food_dict, 1, "unknown") # Devolviendo un valor por defecto
+get(food_dict, 7, "unknown")
+
+haskey(food_dict, 2)
+haskey(food_dict, 9)
+
+# 999 es el valor si 1 no esta en el diccionario
+getkey(food_dict, 1, 999)
+
+food_dict
+food_dict[1] = "lobster"
+
+# Formas comunes de agregar elementos
+food_dict[4] = "bannock"
+
+# No agrega el valor provisto si la llave existe
+get!(food_dict, 4, "bannock")
+get!(food_dict, 4, "toutiere")
+
+delete!(food_dict, 4)
+
+# Eliminando por llave y sacando el valor asociado a la llave
+# con un valor por defecto si no se encuentra
+deleted_fd_value = pop!(food_dict, 3, 999)
+
+collect(keys(food_dict))
+collect(values(food_dict))
+
+# Iterando sobre los pares de llave-valor
+for (k, v) in food_dict
+    println("food_dict: key: ", k, "value: ", v)
+end
+
+# Sobre las llaves
+for k in keys(food_dict)
+    println("food_dict: key: ", k)
+end
+
+# Sobre los valores
+for v in values(food_dict)
+    println("food_dict: value:", v)
+end
+
 
 
