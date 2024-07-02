@@ -1,3 +1,5 @@
+using Statistics
+
 # Las funciones son objetos de primer orden
 # en Julia, por lo que podemos asignarlas a variables,
 # llamarlas desde dichas variables, pasarlas como
@@ -66,7 +68,7 @@ a = [1, 2, 3, 1, 2, 1]
 sd = std(a)
 
 ## centra y escala a
-b = map(x -> (x - mu) / sd, a)
+# b = map(x -> (x - μ) / sd, a)
 
 # Podemos especificar argumentos por defecto para los
 # parametros de la funcion
@@ -85,3 +87,91 @@ fibonacci(12) # 233
 fibonacci(20)
 fibonacci()
 
+# Funciones con argumentos nombrados (se especifican despues de ;)
+# se evaluan de izquierda a derecha, por lo que las podemos utilizar
+# en las deifiniciones de argumentos mismas.
+
+
+# Estimaremos la mediana de un arreglo 1 dimensional utilizando el algoritmo
+# MM por claridad 
+
+function mm_median(x, ϵ=0.001; maxit=25, iter::Int64=Int(floor(ϵ)))
+    # Inicializacion
+    ψ = fill!(Vector{Float64}(undef, 2), 1e2)
+
+    while true
+        iter += 1
+        if iter == maxit
+            println("Iteración máxima alcanzada en iter=$iter")
+            break
+        end
+
+        num, ρ = (0, 0)
+        ## usa map() para hacer operaciones elemento a elemento en wgt
+        wgt = map(d -> abs(d - ψ[2])^(-1), x)
+        num = sum(map(*, wgt, x))
+        ρ = sum(wgt)
+        ψ = circshift(ψ, 1)
+        ψ[2] = num / ρ
+
+        δ = abs(ψ[2] - ψ[1])
+        if δ < ϵ
+            println("Convergió en la iteración $iter")
+            break
+        end
+    end
+
+    return Dict(
+        :psi_vec => ψ,
+        :median => ψ[2]
+    )
+end
+
+# Lo corremos con datos simulados
+using Distributions, Random
+Random.seed!(1234)
+
+N = Int(1e3)
+dat = rand(Normal(0, 6), N)
+
+# Llamada a la función con diferentes tipos de argumentos
+median(dat) # 0.279
+mm_median(dat, 1e-9)[:median]
+mm_median(dat, maxit=50)[:median]
+mm_median(dat, 1e-9, maxit=100)[:median]
+
+# TIPS
+
+# 1. Dividir el problema en funciones
+# 2. Las funciones no deberian operar sobre variables globales
+# 3. Por convencion se pone ! al final del nombre de las funciones que
+#    modifican el estado de sus argumentos.
+# 4. No sobreutilizar las funciones anonimas
+# 5. Utilizar Int en funciones para los enteros, cambian el tipo resultante con
+#    menos frecuencia. (Promoción de Tipos)
+# 6. Asegurar el correcto tipo de argumentos antes de pasarlos a una funcion con
+#    anotaciones de tipo.
+
+a1 = [2, 3, 1, 6, 2, 8]
+sort!(a1) # Tip 3
+a1
+
+A = [1, -0.5, -2, 0.5]
+map(x -> abs(x), A) # No envolvemos abs en otra funcion anonima
+
+# En su lugar, hacemos:
+map(abs, A) # Tip 4
+
+# Tip 5: Promoción de Tipos
+times1a(y) = *(y, 1)
+times1b(y) = *(y, 1.0)
+println("times1a(1/2): ", times1a(1 / 2))
+println("times1a(2): ", times1a(2)) # Preserva el tipo
+println("times1a(2.0): ", times1a(2.0))
+println("times1b(1/2): ", times1b(1 / 2))
+println("times1b(2): ", times1b(2)) # Cambia el tipo
+println("times1b(2): ", times1b(2.0))
+
+# Tip 6: Función con argumentos tipados
+times1c(y::Float64) = *(y, 1)
+times1c(float(23)) 
