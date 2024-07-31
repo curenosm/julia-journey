@@ -1,12 +1,12 @@
 function has_trailing_zeros(nums)
-    for i in eachindex(nums)
-        for j in i+1:length(nums)
-            if nums[i] & 1 === 0 && nums[j] & 1 === 0
-                return true
-            end
-        end
+  for i in eachindex(nums)
+    for j = i+1:length(nums)
+      if nums[i] & 1 === 0 && nums[j] & 1 === 0
+        return true
+      end
     end
-    false
+  end
+  false
 end
 
 input = [1, 2]

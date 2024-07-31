@@ -48,19 +48,38 @@ Random.seed(24_908)
 
 # Tipos para las columnas de los archivos
 
-IntOrMiss = Union{Int64, Missing}
-FltOrMiss = Union{Float64, Missing}
-StrOrMiss = Union{String, Missing}
+IntOrMiss = Union{Int64,Missing}
+FltOrMiss = Union{Float64,Missing}
+StrOrMiss = Union{String,Missing}
 
 # Definimos los nombres para cada columna
 recipe_header = [
-  "beer_id", "name", "url", "style", "style_id", "size",
-  "og", "fg", "abv", "ibu", "color", "boil_size", "boil_time", "biol_grav",
-  "efficiency", "mash_thick", "sugar_scale", "brew_method", "pitch_rate",
-  "pri_temp", "prime_method", "prime_am"]
+  "beer_id",
+  "name",
+  "url",
+  "style",
+  "style_id",
+  "size",
+  "og",
+  "fg",
+  "abv",
+  "ibu",
+  "color",
+  "boil_size",
+  "boil_time",
+  "biol_grav",
+  "efficiency",
+  "mash_thick",
+  "sugar_scale",
+  "brew_method",
+  "pitch_rate",
+  "pri_temp",
+  "prime_method",
+  "prime_am",
+]
 
 ## Diccionario de tipos para cada columna
-recipe_types2 = Dict{String, Union}(
+recipe_types2 = Dict{String,Union}(
   "beer_id" => IntOrMiss,
   "name" => StrOrMiss,
   "url" => StrOrMiss,
@@ -86,14 +105,15 @@ recipe_types2 = Dict{String, Union}(
 )
 
 # Leemos el archivo CSV
-df_recipe_raw = CSV.read("recipeData.csv",
+df_recipe_raw = CSV.read(
+  "recipeData.csv",
   DataFrame;
   delim = ',',
   quotechar = '"',
   missingstring = "N/A",
   datarow = 2,
   types = recipe_types2,
-  allowmissing:=:all
+  allowmissing := :all,
 )
 
 ## Descartamos columnas
@@ -116,12 +136,18 @@ println("-- df_recipe: ", size(df_recipe))
 # df_recipe: (73861, 19)
 
 ## Formamos categorias de cervezas
-df_recipe[!, :y] = map(x ->
-  occursin(r"ALE"i, x) || occursin(r"IPA"i, x) || occursin(r"Porter"i, x) 
-   || occursin(r"stdout"i, x) ? 0 :
-  occursin(r"larger"i, x) || occursin(r"pilsner"i, x) || occursin(r"bock"i, x)
-   || occursin(r"okto"i, x) ? 1 : 99,
-df_recipe[:style])
+df_recipe[!, :y] = map(
+  x ->
+    occursin(r"ALE"i, x) ||
+      occursin(r"IPA"i, x) ||
+      occursin(r"Porter"i, x) ||
+      occursin(r"stdout"i, x) ? 0 :
+    occursin(r"larger"i, x) ||
+      occursin(r"pilsner"i, x) ||
+      occursin(r"bock"i, x) ||
+      occursin(r"okto"i, x) ? 1 : 99,
+  df_recipe[:style],
+)
 
 ## Eliminamos los estilos que no sean lagers or ales
 filter!(row -> row[:y] != 99, df_recipe)

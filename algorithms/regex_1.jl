@@ -23,6 +23,5 @@ parse(Float64, ans)
 typeof(ans)
 
 eachmatch(r"\d+", "123 456 789") do m
-    println(m.match)
+  println(m.match)
 end
-

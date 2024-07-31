@@ -16,4 +16,3 @@ s = f^4;
 t = (s + g)^4;
 
 @time resultant(s, t)
-

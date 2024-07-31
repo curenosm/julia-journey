@@ -80,8 +80,8 @@ x * y
 
 #nb %% A slide [code] {"slideshow": {"slide_type": "subslide"}}
 function foo()
-    println("This string is printed to stdout.")
-    return [1, 2, 3, 4]
+  println("This string is printed to stdout.")
+  return [1, 2, 3, 4]
 end
 
 foo()
@@ -96,7 +96,7 @@ foo()
 
 #nb %% A slide [code] {"slideshow": {"slide_type": "subslide"}}
 using Plots
-x = range(0, stop=6π, length=1000)
+x = range(0, stop = 6π, length = 1000)
 y1 = sin.(x)
 y2 = cos.(x)
 plot(x, [y1, y2])
@@ -116,8 +116,8 @@ x = 123
 
 #nb %% A slide [code] {"slideshow": {"slide_type": "fragment"}}
 function pre(s::String)
-    s = replace(s, "x = 123" => "y = 321")
-    return s
+  s = replace(s, "x = 123" => "y = 321")
+  return s
 end
 
 #nb # %% A slide [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -140,4 +140,4 @@ end
 
 
 using Literate
-Literate.markdown("examples/README.jl", "."; flavor=Literate.CommonMarkFlavor())
+Literate.markdown("examples/README.jl", "."; flavor = Literate.CommonMarkFlavor())

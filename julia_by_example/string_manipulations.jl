@@ -44,12 +44,12 @@ println();
 # eachmatch returns an iterator over all the matches
 r = eachmatch(r"[\w]{4,}", s1)
 for i in r
-    print("\"$(i.match)\" ")
+  print("\"$(i.match)\" ")
 end
 #> "quick" "brown" "jumps" "over" "lazy"
 println()
 
-r = collect(m.match for m = eachmatch(r"[\w]{4,}", s1))
+r = collect(m.match for m in eachmatch(r"[\w]{4,}", s1))
 println(r)
 #> Substring{String}["quick", "brown", "jumps", "over", "lazy"]
 

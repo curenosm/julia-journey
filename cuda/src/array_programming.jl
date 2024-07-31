@@ -16,7 +16,7 @@ map(sin, a)
 
 a = CUDA.ones(2, 3)
 reduce(+, a)
-mapreduce(sin, *, a; dims=2)
+mapreduce(sin, *, a; dims = 2)
 
 b = CUDA.zeros(1)
 Base.mapreducedim!(identity, +, b, a)
@@ -25,7 +25,7 @@ Base.mapreducedim!(identity, +, b, a)
 # Para retener valores intermedios
 # Debe tratarse de un operador asociativo
 a = CUDA.ones(2, 3)
-accumulate(+, a; dims=2)
+accumulate(+, a; dims = 2)
 
 # Operaciones Lógicas
 a = CuArray([1, 2, 3])
@@ -38,8 +38,8 @@ findfirst(isodd, a)
 
 b = CuArray([11 12 13; 21 22 23])
 findmin(b)
-findmax(b; dims=1)
-findmax(b; dims=2)
+findmax(b; dims = 1)
+findmax(b; dims = 2)
 
 # Wrappers de Arrays
 a = CuArray(collect(1:10))
@@ -83,10 +83,10 @@ y .+= x
 # Paralelización en la CPU
 
 function sequential_add!(y, x)
-    for i in eachindex(y, x)
-        @inbounds y[i] += x[i]
-    end
-    return nothing
+  for i in eachindex(y, x)
+    @inbounds y[i] += x[i]
+  end
+  return nothing
 end
 
 fill!(y, 2)
@@ -97,10 +97,10 @@ sequential_add!(y, x)
 # Implementación en paralelo
 
 function parallel_add!(y, x)
-    Threads.@threads for i in eachindex(y, x)
-        @inbounds y[i] += x[i]
-    end
-    return nothing
+  Threads.@threads for i in eachindex(y, x)
+    @inbounds y[i] += x[i]
+  end
+  return nothing
 end
 
 fill!(y, 2)
@@ -126,9 +126,9 @@ y_d .+= x_d
 @test all(Array(y_d) .== 3.0f0) # Array() lo mueve al host
 
 function add_broadcast!(y, x)
-    # Bloquea la CPU para hacer la operación en la GPU
-    CUDA.@sync y .+= x
-    return
+  # Bloquea la CPU para hacer la operación en la GPU
+  CUDA.@sync y .+= x
+  return
 end
 
 @btime add_broadcast!($y_d, $x_d)
@@ -137,10 +137,10 @@ end
 # Misma funcionalidad utilizando un kernel de GPU
 
 function gpu_add1!(y, x)
-    for i = 1:length(y)
-        @inbounds y[i] += x[i]
-    end
-    return nothing
+  for i = 1:length(y)
+    @inbounds y[i] += x[i]
+  end
+  return nothing
 end
 
 fill!(y_d, 2)

@@ -5,8 +5,8 @@ using Genie, Genie.Renderer.Html
 # de Stipple.jl
 
 route("/message") do
-    name = "John"
-    h1("Welcome to Genie, $name!")
+  name = "John"
+  h1("Welcome to Genie, $name!")
 end
 
 
@@ -14,13 +14,12 @@ end
 La función `html` agrega información al header de
 HTTP response
 """
-route("/message") do 
-    name = "Alice"
-    html(Genie.Renderer.filepath("message.jl"), name=name)
+route("/message") do
+  name = "Alice"
+  html(Genie.Renderer.filepath("message.jl"), name = name)
 end
 
 
 route("/message") do
-    html(Renderer.filepath("pages/message.jl.html"))
+  html(Renderer.filepath("pages/message.jl.html"))
 end
-

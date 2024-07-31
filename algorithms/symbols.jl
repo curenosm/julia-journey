@@ -13,4 +13,3 @@ gensym("foo"), gensym("foo")
 
 foo = 0
 eval(:foo)
-

@@ -1,5 +1,4 @@
-is_acronym(words::Vector{String}, s::String) =
-    s == join(map(w -> w[1], words))
+is_acronym(words::Vector{String}, s::String) = s == join(map(w -> w[1], words))
 
 
 words = ["alice", "bob", "charlie"]

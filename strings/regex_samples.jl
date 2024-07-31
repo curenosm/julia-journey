@@ -14,5 +14,3 @@ m[:number], m[:area], m[1], m[2], m[3]
 # Usando named classes
 s = "artificial intelligence: julia"
 match(r"artificial intelligence: (?<name>[[:alnum:]]+)", s)["name"]
-
-

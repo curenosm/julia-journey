@@ -13,7 +13,7 @@ using CSV, SQLite
 s = "D:\\pc\\github\\journeys\\julia-journey\\"
 df = DataFrame(CSV.File(joinpath(s, "iris.csv")))
 
-df = DataFrame(A=1:10, B=11:20)
+df = DataFrame(A = 1:10, B = 11:20)
 
 # Ahora lo guardamos en un archivo CSV
 CSV.write(joinpath(s, "iris2.csv"), df)

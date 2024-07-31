@@ -19,13 +19,13 @@ end
 
 # error
 for i in [1, 2, -1, 3]
-    if i < 0
-        # Inmediatamente detiene la ejecucion de todo el
-        # programa en Julia, arrojando un ErrorException()
-        error("i is a negative number")
-    else
-        println("i: $(log(i))")
-    end
+  if i < 0
+    # Inmediatamente detiene la ejecucion de todo el
+    # programa en Julia, arrojando un ErrorException()
+    error("i is a negative number")
+  else
+    println("i: $(log(i))")
+  end
 end
 
 # Si queremos verificar que no suceda una excepcion
@@ -33,22 +33,21 @@ end
 # usamos un bloque try-catch
 
 for i in [1, 2, -1, "A"]
-    try
-        log(i)
-    catch ex
-        if isa(ex, DomainError)
-            println("i: $i --- Domain Error")
-            log(abs(i))
-        else
-            println("i: $i")
-            println(ex)
-            error("Not a DomainError")
-        end
+  try
+    log(i)
+  catch ex
+    if isa(ex, DomainError)
+      println("i: $i --- Domain Error")
+      log(abs(i))
+    else
+      println("i: $i")
+      println(ex)
+      error("Not a DomainError")
     end
+  end
 end
 
 # Para codigo de alta eficiencia los bloques try-catch
 # pueden degradar el rendimiento, por lo que se recomienda
 # evaluacion condicional para manejar todas las excepciones
 # conocidas.
-

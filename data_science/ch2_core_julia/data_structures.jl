@@ -59,54 +59,54 @@ a3 = collect(Float64, 3:-1:1)
 # Ejemplo de majejo de arreglos
 begin
 
-    using LinearAlgebra
-    imat = Matrix{Int8}(I, (2, 2))
+  using LinearAlgebra
+  imat = Matrix{Int8}(I, (2, 2))
 
-    rand(2)
+  rand(2)
 
-    B = [80 81 82; 90 91 92]
+  B = [80 81 82; 90 91 92]
 
-    rand(B, 2) # Selecciona dos elementos de B
-    length(B) # Tamaño del arreglo (cantidad de elementos)
-    size(B) # Dimensiones (Tupla)
-    ndims(B) # Número de dimensiones
-    reshape(B, (3, 2))
+  rand(B, 2) # Selecciona dos elementos de B
+  length(B) # Tamaño del arreglo (cantidad de elementos)
+  size(B) # Dimensiones (Tupla)
+  ndims(B) # Número de dimensiones
+  reshape(B, (3, 2))
 
-    # Copia de B generada recursivamente
-    B2 = deepcopy(B)
+  # Copia de B generada recursivamente
+  B2 = deepcopy(B)
 
-    # Al hacer slicing, pasamos un slice por cada dimensión
-    B[1:2,]
-    B[1:2, 1]
-    B[1:2, 2]
-    B[1, :] # Primera fila
-    B[3] # Tercer elemento
+  # Al hacer slicing, pasamos un slice por cada dimensión
+  B[1:2,]
+  B[1:2, 1]
+  B[1:2, 2]
+  B[1, :] # Primera fila
+  B[3] # Tercer elemento
 
-    # Tambien podemos generarlos utilizando list comprehension
-    A1 = [sqrt(i) for i in [16, 25, 64]]
-    A2 = [i^2 for i in [1, 2, 3]]
+  # Tambien podemos generarlos utilizando list comprehension
+  A1 = [sqrt(i) for i in [16, 25, 64]]
+  A2 = [i^2 for i in [1, 2, 3]]
 
-    # JULIA CUENTA LOS ELEMENTOS DE UN ARREGLO POR COLUMNAS, ES DECIR
+  # JULIA CUENTA LOS ELEMENTOS DE UN ARREGLO POR COLUMNAS, ES DECIR
 
-    #= El 4 elemento de:
-    1 | 2 | 3
-    4 | 5 | 6
-    7 | 8 | 9
+  #= El 4 elemento de:
+  1 | 2 | 3
+  4 | 5 | 6
+  7 | 8 | 9
 
-        |
-        v
-    1 | 2 | 3
-    |
-    v
-    4 | 5 | 6
-    |
-    v
-    7 | 8 | 9
-    |
-    v
+      |
+      v
+  1 | 2 | 3
+  |
+  v
+  4 | 5 | 6
+  |
+  v
+  7 | 8 | 9
+  |
+  v
 
-    Es el número 2
-    =#
+  Es el número 2
+  =#
 
 end
 
@@ -127,7 +127,7 @@ food_dict = Dict{Int,String}()
 
 ## Las llaves son los indices en el arreglo
 for (n, fd) in enumerate(food)
-    food_dict[n] = fd
+  food_dict[n] = fd
 end
 
 # También pueden ser creados utilizando la sintaxis de generator
@@ -168,18 +168,15 @@ collect(values(food_dict))
 
 # Iterando sobre los pares de llave-valor
 for (k, v) in food_dict
-    println("food_dict: key: ", k, "value: ", v)
+  println("food_dict: key: ", k, "value: ", v)
 end
 
 # Sobre las llaves
 for k in keys(food_dict)
-    println("food_dict: key: ", k)
+  println("food_dict: key: ", k)
 end
 
 # Sobre los valores
 for v in values(food_dict)
-    println("food_dict: value:", v)
+  println("food_dict: value:", v)
 end
-
-
-

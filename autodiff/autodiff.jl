@@ -2,16 +2,16 @@ using Plots
 using ForwardDiff
 
 
-function Babylonian(x, N=10)
-    t = (1 + x) / 2
-    for _ = 2:N
-        t = (t + x / t) / 2
-    end
-    t
+function Babylonian(x, N = 10)
+  t = (1 + x) / 2
+  for _ = 2:N
+    t = (t + x / t) / 2
+  end
+  t
 end
 
 struct D <: Number
-    f::Tuple{Float64,Float64}
+  f::Tuple{Float64,Float64}
 end
 
 

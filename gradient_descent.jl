@@ -20,24 +20,19 @@ p_0 = [-1.2, 0.05]
 y = lm(x + epsilon, p_0...)
 
 # Loss ? L2!
-L2(y, x, f, p...) = sum(
-    (y .- f.(x, p...)) .^ 2.0
-) / length(x)
+L2(y, x, f, p...) = sum((y .- f.(x, p...)) .^ 2.0) / length(x)
 
 p = rand(length(p_0))
 
-grad_l(y, x, f, p...) = gradient(
-    (p...) -> L2(y, x, f, p...),
-    p...
-)
+grad_l(y, x, f, p...) = gradient((p...) -> L2(y, x, f, p...), p...)
 
 # Learning rate
 eta = 0.01
 
-for epoch in 1:50_000
-    p .= eta .* grad_l(y, x, lm, p...)
+for epoch = 1:50_000
+  p .= eta .* grad_l(y, x, lm, p...)
 end
 
 
-round(p[1]; digits=5)
-round(p[2]; digits=5)
+round(p[1]; digits = 5)
+round(p[2]; digits = 5)

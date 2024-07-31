@@ -1,6 +1,6 @@
 function array_rank_transform(arr)
-    sorted = sort(unique(arr))
-    map(n -> findfirst(==(n), sorted), arr)
+  sorted = sort(unique(arr))
+  map(n -> findfirst(==(n), sorted), arr)
 end
 
 input = [37, 12, 28, 9, 100, 56, 80, 5, 12]

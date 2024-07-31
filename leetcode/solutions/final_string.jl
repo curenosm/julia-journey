@@ -1,13 +1,13 @@
 function final_string(s::String)
-    str = ""
-    for c in s
-        if c == 'i'
-            str = reverse(str)
-        else
-            str *= c
-        end
+  str = ""
+  for c in s
+    if c == 'i'
+      str = reverse(str)
+    else
+      str *= c
     end
-    str
+  end
+  str
 end
 
 input = "poiinter"

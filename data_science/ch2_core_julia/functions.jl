@@ -7,7 +7,7 @@ using Statistics
 # resultado de otra funcion.
 
 function add(x, y)
-    return (x + y)
+  return (x + y)
 end
 
 # Se recomienda utilizar solo letras minusculas
@@ -28,8 +28,8 @@ add2(x, y) = x + y
 
 ## Argument passing
 function f1!(x)
-    x[1] = 9999
-    return (x)
+  x[1] = 9999
+  return (x)
 end
 
 ia = Int64[0, 1, 2]
@@ -44,13 +44,13 @@ println("Paso de argumentos por referencia: ", ia)
 # utilizar return
 
 function gt(g1, g2)
-    if g1 > g2
-        return "$g1 is largest"
-    elseif g1 < g2
-        return "$g2 is largest"
-    else
-        return "$g1 and $g2 are equal"
-    end
+  if g1 > g2
+    return "$g1 is largest"
+  elseif g1 < g2
+    return "$g2 is largest"
+  else
+    return "$g1 and $g2 are equal"
+  end
 end
 
 gt(2, 4) # "4 is largest"
@@ -73,12 +73,12 @@ sd = std(a)
 # Podemos especificar argumentos por defecto para los
 # parametros de la funcion
 
-function fibonacci(n=20)
-    if n <= 1
-        return 1
-    else
-        return fibonacci(n - 1) + fibonacci(n - 2)
-    end
+function fibonacci(n = 20)
+  if n <= 1
+    return 1
+  else
+    return fibonacci(n - 1) + fibonacci(n - 2)
+  end
 end
 
 fibonacci(12) # 233
@@ -95,36 +95,33 @@ fibonacci()
 # Estimaremos la mediana de un arreglo 1 dimensional utilizando el algoritmo
 # MM por claridad 
 
-function mm_median(x, ϵ=0.001; maxit=25, iter::Int64=Int(floor(ϵ)))
-    # Inicializacion
-    ψ = fill!(Vector{Float64}(undef, 2), 1e2)
+function mm_median(x, ϵ = 0.001; maxit = 25, iter::Int64 = Int(floor(ϵ)))
+  # Inicializacion
+  ψ = fill!(Vector{Float64}(undef, 2), 1e2)
 
-    while true
-        iter += 1
-        if iter == maxit
-            println("Iteración máxima alcanzada en iter=$iter")
-            break
-        end
-
-        num, ρ = (0, 0)
-        ## usa map() para hacer operaciones elemento a elemento en wgt
-        wgt = map(d -> abs(d - ψ[2])^(-1), x)
-        num = sum(map(*, wgt, x))
-        ρ = sum(wgt)
-        ψ = circshift(ψ, 1)
-        ψ[2] = num / ρ
-
-        δ = abs(ψ[2] - ψ[1])
-        if δ < ϵ
-            println("Convergió en la iteración $iter")
-            break
-        end
+  while true
+    iter += 1
+    if iter == maxit
+      println("Iteración máxima alcanzada en iter=$iter")
+      break
     end
 
-    return Dict(
-        :psi_vec => ψ,
-        :median => ψ[2]
-    )
+    num, ρ = (0, 0)
+    ## usa map() para hacer operaciones elemento a elemento en wgt
+    wgt = map(d -> abs(d - ψ[2])^(-1), x)
+    num = sum(map(*, wgt, x))
+    ρ = sum(wgt)
+    ψ = circshift(ψ, 1)
+    ψ[2] = num / ρ
+
+    δ = abs(ψ[2] - ψ[1])
+    if δ < ϵ
+      println("Convergió en la iteración $iter")
+      break
+    end
+  end
+
+  return Dict(:psi_vec => ψ, :median => ψ[2])
 end
 
 # Lo corremos con datos simulados
@@ -137,8 +134,8 @@ dat = rand(Normal(0, 6), N)
 # Llamada a la función con diferentes tipos de argumentos
 median(dat) # 0.279
 mm_median(dat, 1e-9)[:median]
-mm_median(dat, maxit=50)[:median]
-mm_median(dat, 1e-9, maxit=100)[:median]
+mm_median(dat, maxit = 50)[:median]
+mm_median(dat, 1e-9, maxit = 100)[:median]
 
 # TIPS
 
@@ -174,4 +171,4 @@ println("times1b(2): ", times1b(2.0))
 
 # Tip 6: Función con argumentos tipados
 times1c(y::Float64) = *(y, 1)
-times1c(float(23)) 
+times1c(float(23))

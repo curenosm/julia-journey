@@ -3,9 +3,9 @@ println("hello world")
 
 # function to calculate the volume of a sphere
 function sphere_vol(r)
-    # julia allows Unicode names (in UTF-8 encoding)
-    # so either "pi" or the symbol "π" can be used
-    return 4 / 3 * pi * r^3
+  # julia allows Unicode names (in UTF-8 encoding)
+  # so either "pi" or the symbol "π" can be used
+  return 4 / 3 * pi * r^3
 end
 
 # functions can also be defined more succinctly
@@ -14,12 +14,12 @@ quadratic(a, sqr_term, b) = (-b + sqr_term) / 2a
 # calculates x for 0 = ax^2 + bx + c, argument 
 # types can be defined in function definitions
 function quadratic2(a::Float64, b::Float64, c::Float64)
-    # unlike other languages 2a is equivalent to 2*a
-    # a^2 is used instead of a**2 or pow(a, 2)
-    sqr_term = sqrt(b^2 - 4a * c)
-    r1 = quadratic(a, sqr_term, b)
-    r2 = quadratic(a, -sqr_term, b)
-    return r1, r2
+  # unlike other languages 2a is equivalent to 2*a
+  # a^2 is used instead of a**2 or pow(a, 2)
+  sqr_term = sqrt(b^2 - 4a * c)
+  r1 = quadratic(a, sqr_term, b)
+  r2 = quadratic(a, -sqr_term, b)
+  return r1, r2
 end
 
 vol = sphere_vol(3)

@@ -1,9 +1,9 @@
 # Podemos utilizar bloques o encadenamiento para formar
 # expresiones compuestas
 b1 = begin
-    c = 20
-    d = 5
-    c * d
+  c = 20
+  d = 5
+  c * d
 end
 
 println("b1: ", b1) # 100
@@ -18,18 +18,18 @@ println("b2: ", b2)
 
 k = 1
 if k == 0
-    "zero"
+  "zero"
 else
-    "not zero"
+  "not zero"
 end # not zero
 
 k = 11
 if k % 3 == 0
-    0
+  0
 elseif k % 3 == 1
-    1
+  1
 else
-    2
+  2
 end # 2
 
 # Evaluacion de corto circuito
@@ -46,9 +46,7 @@ println("SCE: b < c: ", b < c ? "less than" : "not ledd than")
 
 d = 10;
 f = 10;
-println("SCE: chained d vs e: ",
-    d < f ? "less than " :
-    d > f ? "greater than " : "equal")
+println("SCE: chained d vs e: ", d < f ? "less than " : d > f ? "greater than " : "equal")
 
 
 # e es una literal en Julia, por lo que sin declarar

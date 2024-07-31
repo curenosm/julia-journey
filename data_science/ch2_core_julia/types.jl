@@ -82,7 +82,7 @@ isinf(y2) # true
 n1 = [1e-25, 1e-5, 1.0, 1e5, 1e25]
 
 for i in n1
-    println(*(i, ϵ))
+  println(*(i, ϵ))
 end
 
 
@@ -172,6 +172,3 @@ typeof(tup2) # Tuple{String,Float64,String,Float64}
 # Asignacion de variables
 a, b, c = ("Fast", 1, 5.2)
 println(a, b, c)
-
-
-

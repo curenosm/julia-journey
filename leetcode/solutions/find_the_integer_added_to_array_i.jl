@@ -1,7 +1,7 @@
 function added_integer(nums1::Vector{Int}, nums2::Vector{Int})
-    sort!(nums1)
-    sort!(nums2)
-    nums2[1] - nums1[1]
+  sort!(nums1)
+  sort!(nums2)
+  nums2[1] - nums1[1]
 end
 
 nums1 = [2, 6, 4]

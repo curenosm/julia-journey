@@ -7,26 +7,26 @@ using GenieFramework, Genie.Renderer.Html
 # Reactive code
 
 @app begin
-    @in N = 0
-    @out msg = ""
-    @onchange N begin
-        msg = "N = $N"
-    end
+  @in N = 0
+  @out msg = ""
+  @onchange N begin
+    msg = "N = $N"
+  end
 end
 
 # UI Components
 function ui()
-    [
+  [
+    cell(
+      [
         cell([
-            cell([
-                p("Enter a number")
-                textfield("N", :N)
-            ])
-            cell([
-                bignumber("The value of N is", :N),
-            ])
-        ]),
-    ]
+          p("Enter a number")
+          textfield("N", :N)
+        ])
+        cell([bignumber("The value of N is", :N)])
+      ],
+    ),
+  ]
 end
 
 # Definition of root route

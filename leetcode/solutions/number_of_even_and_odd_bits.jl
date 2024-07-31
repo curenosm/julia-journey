@@ -19,18 +19,18 @@ julia> event_odd_bit(50)
 
 """
 function even_odd_bit(n::Int64)
-    res = [0, 0]
-    bin = bitstring(n)
+  res = [0, 0]
+  bin = bitstring(n)
 
-    for (i, c) in enumerate(bin)
-        res[i%2+1] += if c == '1'
-            1
-        else
-            0
-        end
+  for (i, c) in enumerate(bin)
+    res[i%2+1] += if c == '1'
+      1
+    else
+      0
     end
+  end
 
-    return res
+  return res
 end
 
 input = 50

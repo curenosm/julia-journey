@@ -1,14 +1,14 @@
 if true
-    println("It's true!")
+  println("It's true!")
 else
-    println("It's false!")
+  println("It's false!")
 end
 #> It's true!
 
 if false
-    println("It's true!")
+  println("It's true!")
 else
-    println("It's false!")
+  println("It's false!")
 end
 #> It's false!
 
@@ -31,15 +31,15 @@ occursin("that", "this and that")
 # More complex logical statments can be achieved with `elseif`
 
 function checktype(x)
-    if x isa Int
-        println("Look! An Int!")
-    elseif x isa AbstractFloat
-        println("Look! A Float!")
-    elseif x isa Complex
-        println("Whoa that's Complex!")
-    else
-        println("I have no idea what that is.")
-    end
+  if x isa Int
+    println("Look! An Int!")
+  elseif x isa AbstractFloat
+    println("Look! A Float!")
+  elseif x isa Complex
+    println("Whoa that's Complex!")
+  else
+    println("I have no idea what that is.")
+  end
 end
 
 checktype(2)

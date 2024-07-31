@@ -20,5 +20,3 @@ data_science = true
 # No podemos asignar valores a palabras reservadas por ejemplo:
 # if = true
 # else = 1.5
-
-

@@ -42,7 +42,7 @@ nextind(a, 5)
 
 # La forma más conveniente de iterar sobre un string es usando for
 for char in a
-    println(char)
+  println(char)
 end
 
 "Command-line arguments are: $ARGS"
@@ -60,5 +60,3 @@ findfirst('x', a)
 
 findfirst('x', s)
 ans === nothing
-
-

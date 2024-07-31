@@ -13,4 +13,4 @@ using CSV, SQLite
 s = "D:\\pc\\github\\journeys\\julia-journey\\"
 df = DataFrame(CSV.File(joinpath(s, "iris.tsv")))
 
-df = DataFrame(A=1:10, B=11:20)
+df = DataFrame(A = 1:10, B = 11:20)

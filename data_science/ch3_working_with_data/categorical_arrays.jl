@@ -22,8 +22,7 @@ Nca = 50
 v3 = Array{Union{String,Missing}}(undef, Nca)
 
 ## El arreglo tiene un string y valores ausentes
-v3 = [isodd(i) ? sample(["High", "Low"], pweights([0.35, 0.65])) :
-      missing for i = 1:Nca]
+v3 = [isodd(i) ? sample(["High", "Low"], pweights([0.35, 0.65])) : missing for i = 1:Nca]
 
 ## v3c es de tipo CategoricalArray{Union{Missing, String}, 1, UInt32} 
 v3c = categorical(v3)

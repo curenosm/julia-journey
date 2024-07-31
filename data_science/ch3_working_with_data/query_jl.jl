@@ -16,11 +16,11 @@ end
 """
 
 df_recipe = DataFrame(
-  id=["id$i" for i in rand(1:10000)],
-  y=rand(0:1, 1000),
-  pri_temp=rand(10:30, 1000),
-  color=rand(0:30, 1000), # rand(["red", "blue", "green"], 1000)
-  ibu=rand(0:100, 1000)
+  id = ["id$i" for i in rand(1:10000)],
+  y = rand(0:1, 1000),
+  pri_temp = rand(10:30, 1000),
+  color = rand(0:30, 1000), # rand(["red", "blue", "green"], 1000)
+  ibu = rand(0:100, 1000),
 )
 
 x_obj = @from i in df_recipe begin
@@ -134,7 +134,7 @@ println(std(skipmissing(s2_obj[:, :color])))
 
 ## Ejemplo 4 - Trabajando con multiples datasets
 
-beer_style = DataFrame(id=0:1, beername=["Ale", "Lager"])
+beer_style = DataFrame(id = 0:1, beername = ["Ale", "Lager"])
 
 ## Inner Join
 ji_obj = @from i in df_recipe begin
@@ -161,6 +161,9 @@ using DataValues
 g1_obj = @from i in df_recipe begin
   @where !isna(i.ibu)
   @group i by i.y into grp
-  @select {Group = key(grp), Mean_IBU = mean(grp.ibu),
-    TrimM_IBU = mean(trim(grp.ibu; prop = 0.2))}
+  @select {
+    Group = key(grp),
+    Mean_IBU = mean(grp.ibu),
+    TrimM_IBU = mean(trim(grp.ibu; prop = 0.2)),
+  }
 end

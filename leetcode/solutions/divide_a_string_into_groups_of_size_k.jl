@@ -1,23 +1,23 @@
 function divide_string(s::String, k::Int, fill::Char)
-    result, cur = [], ""
+  result, cur = [], ""
 
-    for i in eachindex(s)
-        cur *= s[i]
+  for i in eachindex(s)
+    cur *= s[i]
 
-        if i % k == 0
-            push!(result, cur)
-            cur = ""
-        end
+    if i % k == 0
+      push!(result, cur)
+      cur = ""
     end
+  end
 
-    if length(cur) != 0
-        while length(cur) < k
-            cur *= fill
-        end
-        push!(result, cur)
+  if length(cur) != 0
+    while length(cur) < k
+      cur *= fill
     end
+    push!(result, cur)
+  end
 
-    result
+  result
 end
 
 input = "abcdefghi"

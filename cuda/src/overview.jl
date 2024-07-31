@@ -11,7 +11,7 @@ a .+= 1
 a
 
 CUDA.allowscalar() do
-    a[1] += 1
+  a[1] += 1
 end
 
 CUDA.@allowscalar a[1] += 1

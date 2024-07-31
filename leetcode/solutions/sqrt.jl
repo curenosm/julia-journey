@@ -1,10 +1,10 @@
 function my_sqrt(x)
-    for i in 0:x
-        if x < i * i
-            return (i - 1)
-        end
+  for i = 0:x
+    if x < i * i
+      return (i - 1)
     end
-    x
+  end
+  x
 end
 
 input = my_sqrt(20000000000)

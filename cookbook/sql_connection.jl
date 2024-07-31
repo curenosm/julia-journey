@@ -1,8 +1,8 @@
 using Pkg
 
 # Pkg.add(url="https://github.com/JuliaDB/PostgreSQL.jl")
-Pkg.add(url="https://github.com/JuliaComputing/MySQL.jl")
-Pkg.add(url="https://github.com/JuliaDB/DBI.jl")
+Pkg.add(url = "https://github.com/JuliaComputing/MySQL.jl")
+Pkg.add(url = "https://github.com/JuliaDB/DBI.jl")
 Pkg.add("SQLite")
 
 
@@ -15,7 +15,7 @@ user = "root"
 passwd = "qwerty123"
 db = "example"
 
-conn = DBInterface.connect(MySQL.Connection, host, user, passwd, db=db, port=3306)
+conn = DBInterface.connect(MySQL.Connection, host, user, passwd, db = db, port = 3306)
 
 query = """
 CREATE TABLE Student 
@@ -28,10 +28,7 @@ CREATE TABLE Student
     PRIMARY KEY (ID)
 );"""
 
-params = Dict(
-    :a => "a",
-    :b => "b"
-)
+params = Dict(:a => "a", :b => "b")
 
 query = """
 SHOW TABLES;
@@ -41,4 +38,3 @@ stmt = DBInterface.prepare(conn, query)
 
 result = DBInterface.execute(stmt)
 df = DataFrame()
-

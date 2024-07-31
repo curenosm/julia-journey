@@ -1,5 +1,5 @@
 function increase(x::Number)
-    return x + 1
+  return x + 1
 end
 
 typemax(Int64)
@@ -11,19 +11,19 @@ typeof(Base.MathConstants.pi)
 supertypes(typeof(Base.MathConstants.e))
 
 struct Foo1
-    a
-    b
+  a::Any
+  b::Any
 end
 
 foo1 = Foo1(1, 2.0)
 
 for name in fieldnames(Foo1)
-    @show name, getfield(foo1, name)
+  @show name, getfield(foo1, name)
 end
 
 mutable struct Foo2
-    a::Int
-    b::Float64
+  a::Int
+  b::Float64
 end
 
 foo = Foo2(1, 2.0)
@@ -39,17 +39,17 @@ methods(Foo2)
 
 
 struct Interval
-    left_open::Bool
-    left::Number
-    right_open::Bool
-    right::Number
+  left_open::Bool
+  left::Number
+  right_open::Bool
+  right::Number
 end
 
 Interval(false, 0, true, 1)
 
 let io = IOBuffer()
-    Base.show(io, Interval(false, 0, true, 1))
-    dump(Meta.parse(String(take!(io))))
+  Base.show(io, Interval(false, 0, true, 1))
+  dump(Meta.parse(String(take!(io))))
 end
 
 (typeof(Int), typeof(Any))

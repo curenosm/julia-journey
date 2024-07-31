@@ -1,5 +1,5 @@
 find_permutation_difference(s::String, t::String) =
-    sum(abs(i - findfirst(==(s[i]), t)) for i = eachindex(s))
+  sum(abs(i - findfirst(==(s[i]), t)) for i in eachindex(s))
 
 
 s = "abc"

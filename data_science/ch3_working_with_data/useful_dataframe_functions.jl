@@ -43,10 +43,10 @@ filter!(row -> !ismissing(row[:style]), df_recipe)
 """
 
 df = DataFrame(
-  X1=[1, 2, 3, 4, 5],
-  X2=[1.0, 2.0, 3.0, 4.0, 5.0],
-  X3=['a', 'b', 'c', 'd', 'e'],
-  Y=[true, false, true, false, true]
+  X1 = [1, 2, 3, 4, 5],
+  X2 = [1.0, 2.0, 3.0, 4.0, 5.0],
+  X3 = ['a', 'b', 'c', 'd', 'e'],
+  Y = [true, false, true, false, true],
 )
 
 describe(df[:, :X1])

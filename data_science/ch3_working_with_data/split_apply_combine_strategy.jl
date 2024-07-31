@@ -16,11 +16,11 @@ crear una particion mediante las columnas cols en el dataframe.
 """
 
 df = DataFrame(
-  X1=[1, 2, 3, 4, 5, 5],
-  X2=[1.0, 2.0, 3.0, 4.0, 5.0, 5.0],
-  X3=[0.1, 0.2, 0.3, 0.4, 0.5, 0.5],
-  X4=['a', 'b', 'c', 'd', 'e', 'e'],
-  Y=[true, false, true, false, true, true]
+  X1 = [1, 2, 3, 4, 5, 5],
+  X2 = [1.0, 2.0, 3.0, 4.0, 5.0, 5.0],
+  X3 = [0.1, 0.2, 0.3, 0.4, 0.5, 0.5],
+  X4 = ['a', 'b', 'c', 'd', 'e', 'e'],
+  Y = [true, false, true, false, true, true],
 )
 
 # Cuenta de los niveles de X2
@@ -32,7 +32,7 @@ combine(groupby(df, :X2), nrow)
 DataFrames de modo que nos es accesible via iteracion.
 """
 
-for part in groupby(df, :X2, sort=true)
+for part in groupby(df, :X2, sort = true)
   println(unique(part[:, :X4]))
   # El tipo de la columna debe permitirnos calcular estadisticas
   println(summarystats(part[:, :X3]))
@@ -63,4 +63,4 @@ sort, por lo que va a modificar el dataframe original y no generar una copia
 como respuesta.
 """
 
-println(sort!(df, [:X2, :Y], rev=[true, false]))
+println(sort!(df, [:X2, :Y], rev = [true, false]))
