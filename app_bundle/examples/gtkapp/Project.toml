@@ -1,0 +1,6 @@
+[deps]
+GLAbstraction = "ca6e7d0a-b0c9-59ca-8aba-aebf11497e1c"
+GLFW = "f7f18e0c-5ee9-5ccd-a5bf-e8befd85ed98"
+Gtk4 = "9db2cae5-386f-4011-9d63-a5602296539b"
+JuliaFormatter = "98e50ef6-434e-11e9-1051-2b60c6c9e899"
+ModernGL = "66fc600b-dfda-50eb-8b99-91cfa97b1301"
