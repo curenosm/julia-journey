@@ -3,7 +3,7 @@ y(x, w) = sum(w[i] * (x^(i - 1)) for i in eachindex(w))
 y(5, [1, 2, 3])
 
 # Función de error
-E(w, X, t) = (1 / 2) * sum((y(X[n], w) - t[n])^2 for n in eachindex(w))
+E(w, X, t) = (1 / 2) * sum((y(X[n], w) - t[n])^2 for n = eachindex(w))
 
 # El 1/2 resulta conveniente para posteriores cálculos
 
